@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
+import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, nextTick } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
 
 const title = 'My Non Reactive Title'
@@ -42,6 +42,9 @@ const addOrEven = computed(() => {
 
 const increaseCounter = (counter, e) => {
   data.counter += counter
+  nextTick(() => {
+    console.log('Do something when dom is finish updated.')
+  })
 }
 
 const decreaseCounter = counter => {
