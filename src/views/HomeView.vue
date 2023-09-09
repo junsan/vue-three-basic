@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
+import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
 
 const title = 'My Non Reactive Title'
 
@@ -66,6 +66,15 @@ onActivated(() => {
 onDeactivated(() => {
   console.log('onDeactivated')
 })
+
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate')
+})
+
+onUpdated(() => {
+  console.log('onUpdated')
+})
+
 </script>
 
 
