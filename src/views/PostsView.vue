@@ -11,7 +11,6 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { vAutofocus } from '../directives/vAutofocus';
 </script>
 
 <style>
