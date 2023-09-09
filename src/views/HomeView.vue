@@ -10,13 +10,17 @@
   <span>Counter is {{  addOrEven }}</span>
   <br><br>
   <h4>Edit My Title</h4>
-  <input v-model="data.title" type="text" />
+  <input v-model="data.title" type="text" v-autofocus />
 </template>
 
 <script setup>
 import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
 
 const title = 'My Non Reactive Title'
+
+onMounted(() => {
+  console.log('Do something for Title')
+})
 
 const counter = ref(0)
 const counterTitle = ref('My Counter:')
@@ -42,6 +46,11 @@ const increaseCounter = (counter, e) => {
 const decreaseCounter = counter => {
   data.counter -= counter
 }
+
+onMounted(() => {
+  console.log('Do something for Counter')
+})
+
 
 onBeforeMount(() => {
   console.log('onBeforeMount')
@@ -102,7 +111,7 @@ onUpdated(() => {
  }
 </script> -->
 
-<!-- <script>
+<script>
   export default {
     data() {
       return {
@@ -116,6 +125,13 @@ onUpdated(() => {
       decreaseCounter() {
         this.counter--
       }
+    },
+    directives: {
+      autofocus: {
+        mounted(el) {
+          el.focus()
+        }
+      }
     }
   }
-</script> -->
+</script> 
