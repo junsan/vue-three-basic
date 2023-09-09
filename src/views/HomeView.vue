@@ -84,6 +84,14 @@ onUpdated(() => {
   console.log('onUpdated')
 })
 
+// directives
+
+const vAutofocus =  {
+  mounted: (el) => {
+    el.focus()
+  }
+}
+
 </script>
 
 
@@ -111,7 +119,7 @@ onUpdated(() => {
  }
 </script> -->
 
-<script>
+<!-- <script>
   export default {
     data() {
       return {
@@ -134,4 +142,4 @@ onUpdated(() => {
       }
     }
   }
-</script> 
+</script>  -->
