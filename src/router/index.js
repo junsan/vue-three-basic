@@ -23,6 +23,11 @@ const router = createRouter({
       component: () => import('../views/PostsView.vue')
     },
     {
+      path: '/modal',
+      name: 'modal',
+      component: () => import('../views/ModalView.vue')
+    },
+    {
       path: '/postDetail/:id',
       name: 'postDetail',
       component: () => import('../views/PostDetailView.vue')
