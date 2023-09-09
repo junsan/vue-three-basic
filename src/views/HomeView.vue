@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 
 const title = 'My Non Reactive Title'
 
@@ -24,6 +24,10 @@ const counterTitle = ref('My Counter:')
 const data = reactive({
   counter: 10,
   title: 'Counter'
+})
+
+watch(() => data.counter, (newCount, oldCount) => {
+  if(newCount === 20) alert('Hi')
 })
 
 const addOrEven = computed(() => {
