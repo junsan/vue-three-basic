@@ -2,8 +2,9 @@
     <teleport to=".modal-container">
       <div class="modal">
         <h4>Modal</h4>
-            <slot name="title"></slot>
-            <slot></slot>
+        <slot name="title"></slot>
+        <h6>{{ subtitle }}</h6>
+        <slot></slot>
         <button>Hide modal</button>  
       </div>
     </teleport>
@@ -14,7 +15,15 @@ import { useSlots } from 'vue'
 
 const slot = useSlots()
 
-console.log(slot.title())
+const props = defineProps({
+    subtitle: {
+        type: String,
+        default: 'No title'
+    }
+})
+
+console.log(props.subtitle)
+//console.log(slot.title())
 
 </script>
 
