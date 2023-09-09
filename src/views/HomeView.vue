@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
 
 const title = 'My Non Reactive Title'
 
@@ -43,6 +43,21 @@ const decreaseCounter = counter => {
   data.counter -= counter
 }
 
+onBeforeMount(() => {
+  console.log('onBeforeMount')
+})
+
+onMounted(() => {
+  console.log('onMounted')
+})
+
+onBeforeUnmount(() => {
+  console.log('onBeforeUnmount')
+})
+
+onUnmounted(() => {
+  console.log('onUnmounted')
+})
 </script>
 
 
