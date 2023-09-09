@@ -1,5 +1,5 @@
 <template>
-  <h1>{{  title }}</h1>
+  <h1 ref="titleRef">{{  title }}</h1>
   <div class="home"><h2>{{ data.title }}</h2></div>
   <button @click="decreaseCounter(2)">--</button> &nbsp;
   <button @click="decreaseCounter(1)">-</button> &nbsp;
@@ -48,10 +48,15 @@ const decreaseCounter = counter => {
   data.counter -= counter
 }
 
+const titleRef = ref(null)
+
+onMounted(() => {
+  console.log(`This h1 width is ${titleRef.value.offsetWidth} px`)
+})
+
 onMounted(() => {
   console.log('Do something for Counter')
 })
-
 
 onBeforeMount(() => {
   console.log('onBeforeMount')
