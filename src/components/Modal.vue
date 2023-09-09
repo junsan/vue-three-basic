@@ -5,7 +5,7 @@
         <slot name="title"></slot>
         <h6>{{ subtitle }}</h6>
         <slot></slot>
-        <button>Hide modal</button>  
+        <button @click="$emit('hide')">Hide modal</button>  
       </div>
     </teleport>
 </template>
@@ -21,6 +21,8 @@ const props = defineProps({
         default: 'No title'
     }
 })
+
+const emit = defineEmits(['hide'])
 
 console.log(props.subtitle)
 //console.log(slot.title())
