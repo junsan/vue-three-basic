@@ -15,6 +15,7 @@
 
 <script setup>
 import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus'
 
 const title = 'My Non Reactive Title'
 
@@ -86,11 +87,11 @@ onUpdated(() => {
 
 // directives
 
-const vAutofocus =  {
-  mounted: (el) => {
-    el.focus()
-  }
-}
+// const vAutofocus =  {
+//   mounted: (el) => {
+//     el.focus()
+//   }
+// }
 
 </script>
 
