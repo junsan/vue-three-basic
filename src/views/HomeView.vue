@@ -1,18 +1,20 @@
 <template>
   <h1>{{  title }}</h1>
   <div class="home"><h2>{{ data.title }}</h2></div>
-  <button @click="decreaseCounter(2)">--</button>
-  <button @click="decreaseCounter(1)">-</button>
-  <span> {{ data.counter }} </span>
-  <button @click="increaseCounter(1, $event)">+</button>
+  <button @click="decreaseCounter(2)">--</button> &nbsp;
+  <button @click="decreaseCounter(1)">-</button> &nbsp;
+  <span> {{ data.counter }} </span> &nbsp;
+  <button @click="increaseCounter(1, $event)">+</button> &nbsp;
   <button @click="increaseCounter(2)">++</button>
+  <br><br>
+  <span>Counter is {{  addOrEven }}</span>
   <br><br>
   <h4>Edit My Title</h4>
   <input v-model="data.title" type="text" />
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 const title = 'My Non Reactive Title'
 
@@ -22,6 +24,11 @@ const counterTitle = ref('My Counter:')
 const data = reactive({
   counter: 10,
   title: 'Counter'
+})
+
+const addOrEven = computed(() => {
+  if(data.counter  % 2 === 0) return 'Even'
+  return 'Odd' 
 })
 
 const increaseCounter = (counter, e) => {
