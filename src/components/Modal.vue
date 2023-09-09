@@ -1,6 +1,6 @@
 <template>
     <teleport to=".modal-container">
-      <div class="modal">
+      <div class="modal" v-if="modelValue">
         <h4>Modal</h4>
         <slot name="title"></slot>
         <h6>{{ subtitle }}</h6>
@@ -16,6 +16,10 @@ import { useSlots } from 'vue'
 const slot = useSlots()
 
 const props = defineProps({
+    modelValue: {
+        type: Boolean,
+        default: false
+    },
     subtitle: {
         type: String,
         default: 'No title'
