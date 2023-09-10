@@ -5,7 +5,8 @@
         <slot name="title"></slot>
         <h6>{{ subtitle }}</h6>
         <slot></slot>
-        <button @click="$emit('update:modelValue', false)">Hide modal</button>  
+        <button @click="$emit('update:modelValue', false)">Hide modal</button>
+        <div>Name: {{ user.name }} Email: {{ user.email }}</div>  
       </div>
     </teleport>
 </template>
@@ -23,6 +24,9 @@ const props = defineProps({
     subtitle: {
         type: String,
         default: 'No title'
+    },
+    user: {
+      type: Object
     }
 })
 

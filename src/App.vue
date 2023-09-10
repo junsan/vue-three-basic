@@ -10,8 +10,18 @@
     <RouterLink to="/modal">Modal</RouterLink>
   </nav>
 
-  <RouterView />
+  <RouterView :user="user" />
 </template>
+
+<script setup>
+import { reactive } from 'vue'
+
+const user = reactive({
+  name: 'M',
+  email: 'm@info.com'
+})
+
+</script>
 
 <style scoped>
 header {
