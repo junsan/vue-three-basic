@@ -12,6 +12,7 @@
     <RouterLink to="/posts">Posts</RouterLink>
     <RouterLink to="/modal">Modal</RouterLink>
     <RouterLink to="/pinia">Pinia</RouterLink>
+    <RouterLink to="/counter">Counter</RouterLink>
   </nav>
 
   <!-- <RouterView :user="user" /> -->

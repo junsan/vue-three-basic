@@ -16,5 +16,10 @@ export const useCounterStore = defineStore('counter', () => {
     count.value -= amount
   }
 
-  return { count, data, doubleCount, increment, decrement }
+  const oddOrEven = computed(() => {
+    if(count.value % 2 === 0) return 'Even'
+    return 'Odd'
+  })
+
+  return { count, data, doubleCount, oddOrEven, increment, decrement }
 })

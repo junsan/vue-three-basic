@@ -8,10 +8,10 @@
   <button @click="counter.increment(1)">+</button> &nbsp;
   <button @click="counter.increment(2)">++</button>
   <br><br>
-  <span>Counter is </span>
+  <span>Counter is {{ counter.oddOrEven }}</span>
   <br><br>
   <h4>Edit My Title</h4>
-  <input type="text" />
+  <input v-model="counter.data.title" type="text" />
 </template>
 
 <script setup>
