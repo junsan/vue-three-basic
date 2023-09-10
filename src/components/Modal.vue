@@ -6,13 +6,13 @@
         <h6>{{ subtitle }}</h6>
         <slot></slot>
         <button @click="$emit('update:modelValue', false)">Hide modal</button>
-        <div>Name: {{ user.name }} Email: {{ user.email }}</div>  
+        <div>Name: {{ userData.name }} Email: {{ userData.email }}</div>  
       </div>
     </teleport>
 </template>
 
 <script setup>
-import { useSlots } from 'vue'
+import { useSlots, inject } from 'vue'
 
 const slot = useSlots()
 
@@ -24,11 +24,10 @@ const props = defineProps({
     subtitle: {
         type: String,
         default: 'No title'
-    },
-    user: {
-      type: Object
     }
 })
+
+const userData = inject('user')
 
 const emit = defineEmits(['hide', 'update:modelValue'])
 
