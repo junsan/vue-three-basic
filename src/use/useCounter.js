@@ -9,7 +9,8 @@ export function userCounter() {
         title: 'Counter'
     })
     
-    const addOrEven = computed(() => {
+    const oddOrEven = computed(() => {
+        console.log(data.counter)
         if(data.counter  % 2 === 0) return 'Even'
         return 'Odd' 
     })
@@ -29,7 +30,7 @@ export function userCounter() {
     return {
         counterTitle,
         data,
-        addOrEven,
+        oddOrEven,
         increaseCounter,
         decreaseCounter
     }

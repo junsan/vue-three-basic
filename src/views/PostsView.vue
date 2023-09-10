@@ -6,12 +6,14 @@
         <RouterLink :to="`/postDetail/${post.id}`">{{ post.title }}</RouterLink>
       </li>
     </ul>
+    <button type="button"  class="btn-counter" :class="{ 'yellow' : oddOrEven === 'Odd'}" @click="increaseCounter(5)"> {{ data.counter }}</button>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router';
+import { userCounter } from '@/use/useCounter'
 
 const posts = ref([
   {
@@ -28,8 +30,17 @@ const posts = ref([
   }
 ])
 
+const { data, increaseCounter, oddOrEven } = userCounter()
+
 </script>
 
 <style>
-
+.btn-counter {
+  font-size: 40px;
+  width: 100px;
+  background-color:aqua;
+}
+.btn-counter.yellow {
+  background-color: yellow;
+}
 </style>

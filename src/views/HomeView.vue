@@ -8,7 +8,7 @@
   <button @click="increaseCounter(1, $event)">+</button> &nbsp;
   <button @click="increaseCounter(2)">++</button>
   <br><br>
-  <span>Counter is {{  addOrEven }}</span>
+  <span>Counter is {{  oddOrEven }}</span>
   <br><br>
   <h4>Edit My Title</h4>
   <input v-model="data.title" type="text" v-autofocus />
@@ -27,7 +27,7 @@ onMounted(() => {
 
 const counter = ref(0)
 
-const { counterTitle, data, addOrEven, increaseCounter, decreaseCounter } = userCounter()
+const { counterTitle, data, oddOrEven, increaseCounter, decreaseCounter } = userCounter()
 
 // const counterTitle = ref('My Counter:')
 
