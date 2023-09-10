@@ -11,6 +11,7 @@
     <RouterLink to="/about">About</RouterLink>
     <RouterLink to="/posts">Posts</RouterLink>
     <RouterLink to="/modal">Modal</RouterLink>
+    <RouterLink to="/pinia">Pinia</RouterLink>
   </nav>
 
   <!-- <RouterView :user="user" /> -->
