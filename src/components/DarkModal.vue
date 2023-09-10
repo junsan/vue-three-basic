@@ -1,6 +1,6 @@
 <template>
     <teleport to=".modal-container">
-      <div class="modal" v-if="modelValue">
+      <div class="modal-dark" v-if="modelValue">
         <h4>Modal</h4>
         <slot name="title"></slot>
         <h6>{{ subtitle }}</h6>
@@ -34,8 +34,9 @@ const emit = defineEmits(['hide', 'update:modelValue'])
 </script>
 
 <style>
-.modal {
-  background-color: bisque;
+.modal-dark {
+  background-color: #333;
+  color: #fff;
   padding: 10px;
   position: absolute;
   left: 0;
