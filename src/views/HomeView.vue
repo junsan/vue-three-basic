@@ -1,6 +1,7 @@
 <template>
   <h1 ref="titleRef">{{  title }}</h1>
   <div class="home"><h2>{{ data.title }}</h2></div>
+  <h2>{{ counterTitle }}</h2>
   <button @click="decreaseCounter(2)">--</button> &nbsp;
   <button @click="decreaseCounter(1)">-</button> &nbsp;
   <span> {{ data.counter }} </span> &nbsp;
@@ -16,6 +17,7 @@
 <script setup>
 import { ref, reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, nextTick } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
+import { userCounter } from '@/use/useCounter'
 
 const title = 'My Non Reactive Title'
 
@@ -24,32 +26,35 @@ onMounted(() => {
 })
 
 const counter = ref(0)
-const counterTitle = ref('My Counter:')
 
-const data = reactive({
-  counter: 10,
-  title: 'Counter'
-})
+const { counterTitle, data, addOrEven, increaseCounter, decreaseCounter } = userCounter()
+
+// const counterTitle = ref('My Counter:')
+
+// const data = reactive({
+//   counter: 10,
+//   title: 'Counter'
+// })
 
 watch(() => data.counter, (newCount, oldCount) => {
   if(newCount === 20) alert('Hi')
 })
 
-const addOrEven = computed(() => {
-  if(data.counter  % 2 === 0) return 'Even'
-  return 'Odd' 
-})
+// const addOrEven = computed(() => {
+//   if(data.counter  % 2 === 0) return 'Even'
+//   return 'Odd' 
+// })
 
-const increaseCounter = (counter, e) => {
-  data.counter += counter
-  nextTick(() => {
-    console.log('Do something when dom is finish updated.')
-  })
-}
+// const increaseCounter = (counter, e) => {
+//   data.counter += counter
+//   nextTick(() => {
+//     console.log('Do something when dom is finish updated.')
+//   })
+// }
 
-const decreaseCounter = counter => {
-  data.counter -= counter
-}
+// const decreaseCounter = counter => {
+//   data.counter -= counter
+// }
 
 const titleRef = ref(null)
 
