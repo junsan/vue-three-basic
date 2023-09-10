@@ -3,6 +3,9 @@
 </script>
 
 <template>
+  <div>
+    Username: @{{ user.name }}, Network Status: <span :style="{ color: online ? 'green' : 'red'}">{{ online ? 'online' : 'offline' }}</span> 
+  </div>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
@@ -16,6 +19,9 @@
 
 <script setup>
 import { reactive, provide } from 'vue'
+import { useOnline } from '@vueuse/core'
+
+const online = useOnline()
 
 const user = reactive({
   name: 'M',
